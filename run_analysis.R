@@ -54,7 +54,7 @@ runanalysis <- function() {
   data_mean<-sapply(data,mean,na.rm=TRUE)
   data_sd<-sapply(data,sd,na.rm=TRUE)
   
-  # 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+  # Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
   DT <- data.table(data)
   tidy<-DT[,lapply(.SD,mean),by="Activity,Subject"]
   write.table(tidy,file="tidy.txt",sep=",",row.names = FALSE)
